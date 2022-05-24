@@ -19,7 +19,7 @@ public:
                 root = root -> right;
             }
             
-            if(root -> val > p -> val && root -> val > q -> val) {
+            else if(root -> val > p -> val && root -> val > q -> val) {
                 
                 root = root -> left; 
             }
