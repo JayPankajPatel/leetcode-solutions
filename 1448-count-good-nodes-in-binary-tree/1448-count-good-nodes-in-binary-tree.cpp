@@ -11,15 +11,12 @@
  */
 class Solution {
 private: 
-    int dfs(TreeNode* root, int maxsf) {
-        
+    int dfs(TreeNode* root, int maxsf) { 
         if(!root)
             return 0; 
-        int total = 0; 
-        if(root -> val  >= maxsf) {
-            total++; 
-            maxsf = root -> val; 
-        }
+        
+        int total = root -> val >= maxsf ? 1 : 0;
+        maxsf = std::max(maxsf, root -> val); 
         
         total += dfs(root -> left, maxsf);
         total += dfs(root -> right, maxsf);
@@ -29,6 +26,6 @@ private:
 public:
     int goodNodes(TreeNode* root) {
         
-        return dfs(root, std::numeric_limits<int>::min()); 
+        return dfs(root, root -> val); 
     }
 };
