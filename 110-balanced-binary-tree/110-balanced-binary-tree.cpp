@@ -11,7 +11,7 @@
  */
 class Solution {
 private: 
-    std::pair<int, bool> maxHeight(TreeNode* root) {
+    std::pair<int, bool> maxHeight(TreeNode* &root) {
         
         if(!root)
             return {0, true}; 
