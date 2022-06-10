@@ -23,7 +23,7 @@ private:
         return {1 + std::max(left.first, right.first), balanced}; 
     }
 public:
-    bool isBalanced(TreeNode* root) {
+    bool isBalanced(TreeNode* &root) {
         return maxHeight(root).second; 
     }
 };
