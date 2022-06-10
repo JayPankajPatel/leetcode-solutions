@@ -11,28 +11,19 @@
  */
 class Solution {
 private: 
-    int maxHeight(TreeNode* root) {
+    std::pair<int, bool> maxHeight(TreeNode* root) {
         
-        if (!root)
-            return 0; 
-        int left = maxHeight(root -> left) + 1;
-        int right = maxHeight(root -> right) + 1;
+        if(!root)
+            return {0, true}; 
+        std::pair<int, bool> left = maxHeight(root -> left);
+        std::pair<int, bool> right = maxHeight(root -> right);
         
-        return std::max(left, right);
+        bool balanced = left.second && right.second && std::abs(left.first - right.first) <= 1; 
+
+        return {1 + std::max(left.first, right.first), balanced}; 
     }
 public:
     bool isBalanced(TreeNode* root) {
-        if(!root)
-            return true; 
-        int lstree = maxHeight(root -> left);
-        int rstree = maxHeight(root -> right);
-        
-        if(std::abs(lstree - rstree) > 1) 
-            return false; 
-        
-        bool left = isBalanced(root -> left);
-        bool right = isBalanced(root -> right);
-        
-        return left && right; 
+        return maxHeight(root).second; 
     }
 };
