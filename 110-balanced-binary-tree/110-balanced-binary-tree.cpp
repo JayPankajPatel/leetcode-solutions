@@ -15,8 +15,8 @@ private:
         
         if(!root)
             return {0, true}; 
-        std::pair<int, bool> left = maxHeight(root -> left);
-        std::pair<int, bool> right = maxHeight(root -> right);
+        std::pair<int, bool> left  {maxHeight(root -> left)};
+        std::pair<int, bool> right {maxHeight(root -> right)};
         
         bool balanced = left.second && right.second && std::abs(left.first - right.first) <= 1; 
 
