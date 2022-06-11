@@ -20,7 +20,7 @@ class Solution:
         
         if(not root):
             return False
-        if(not subRoot):
+        if(not subRoot and root):
             return True
       
         if(self.sameTree(root, subRoot)):
