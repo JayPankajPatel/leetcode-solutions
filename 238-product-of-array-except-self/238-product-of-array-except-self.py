@@ -9,24 +9,12 @@ class Solution:
         for i in range(1, len(pre)):
             pre[i] = nums[i-1] *  pre[i-1]
         
-        post = []
-        
-        for _ in range(len(nums)):
-            post.append(1)
-        
-        for i in range(len(nums)-1, 0, -1):
-            post[i - 1] = post[i] * nums[i]
-            
-        print(post)
-        res = []
-        
-        for i, x in enumerate(pre):
-            res.append(pre[i] * post[i])
-            
-           
-        
-        
-        return res
+        prev = nums[-1]
+        for i in range(len(pre) -2, -1, -1):
+            pre[i] *= prev
+            prev *= nums[i]
+
+        return pre
             
         
         
