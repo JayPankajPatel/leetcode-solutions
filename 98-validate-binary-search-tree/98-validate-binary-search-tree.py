@@ -6,15 +6,21 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        left_constraint = -2**31-1
-        right_constraint = 2**31
-        def valid(node, left, right):
-            if not node:
-                return True 
-            if not (node.val > left and node.val < right):
+        res = []
+        def dfs(root):
+            if not root:
+                return
+            if root:
+                dfs(root.left)
+                res.append(root.val)
+                dfs(root.right)
+            
+            return
+        dfs(root)
+        
+        for i in range(len(res)-1):
+            if(res[i] >= res[i + 1]):
                 return False
             
-            return valid(node.left, left, node.val) and valid(node.right, node.val, right)
-        
-        return valid(root, left_constraint, right_constraint)
-        
+        return True
+             
