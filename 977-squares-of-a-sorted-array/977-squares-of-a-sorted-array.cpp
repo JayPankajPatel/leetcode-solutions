@@ -8,12 +8,12 @@ public:
         
         while(left <= right) {
             if(std::abs(nums[left]) > std::abs(nums[right])) {
-                res.emplace_back(nums[left] * nums[left]);
+                res.push_back(nums[left] * nums[left]);
                 left++; 
             }
             
             else {
-                res.emplace_back(nums[right] * nums[right]);
+                res.push_back(nums[right] * nums[right]);
                 right--;
             }
         }
