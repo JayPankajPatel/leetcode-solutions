@@ -4,7 +4,6 @@ class Solution:
         right = len(nums) -1 
         res = []
         
-        
         while(left <= right):
             
             if(nums[left] ** 2 > nums[right] ** 2):
