@@ -1,12 +1,19 @@
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
         
-        nums.sort()
+        our_set = set(nums)
         
-        for i in range(1, len(nums)):
-            if nums[i] == nums[i - 1]:
-                return nums[i]
+        for _, x in enumerate(nums):
+            
+            if x in our_set:
+                our_set.remove(x)
+            else:
+                return x
         
-        return
+        
+        return x
+        
+        
+            
             
         
