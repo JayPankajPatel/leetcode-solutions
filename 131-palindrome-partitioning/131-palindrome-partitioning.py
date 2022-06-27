@@ -5,7 +5,7 @@ class Solution:
         def is_palindrome(word: str) -> bool:
             return word == word[::-1]
         
-        def dfs(start: int, route: List[str]):
+        def dfs(start: int, route: List[str]) -> None:
             if start == len(s):
                 res.append(route[:])
                 return
@@ -16,7 +16,7 @@ class Solution:
                     route.append(substring)
                     dfs(i + 1, route)
                     route.pop()
-        
+            return
         
         dfs(0, [])
         
