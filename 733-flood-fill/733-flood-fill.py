@@ -17,7 +17,7 @@ class Solution:
                 neigh_row = r + delta_row[i]
                 neigh_col = c + delta_col[i]
                 
-                if 0 <= neigh_row < num_rows and 0 <= neigh_col < num_cols:
+                if 0 <= neigh_row and neigh_row < num_rows and 0 <= neigh_col and neigh_col < num_cols:
                     if image[neigh_row][neigh_col] == replace:
                         res.append((neigh_row, neigh_col))
             return res
