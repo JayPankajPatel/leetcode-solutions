@@ -7,20 +7,20 @@
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         res = []
-        def dfs(root):
+        
+        def dfs(root): 
             if not root:
-                return
-            if root:
+                return 
+            if root: 
                 dfs(root.left)
                 res.append(root.val)
                 dfs(root.right)
-            
-            return
+        
         dfs(root)
         
-        for i in range(len(res)-1):
-            if(res[i] >= res[i + 1]):
+        for i in range(1, len(res)):
+            if res[i] <= res[i-1]:
                 return False
-            
+        
         return True
-             
+        
