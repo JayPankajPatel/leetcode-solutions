@@ -28,14 +28,15 @@ class Solution:
                 for neighbor in get_neighbors(node):
                     _r, _c = neighbor
                     queue.append(neighbor)
-                    grid[_r][_c] = 0
+                    grid[_r][_c] = -1
                     count += 1
             return count
         
         for r in range(num_row):
             for c in range(num_col):
-                if grid[r][c] == 1:
-                    max_so_far = max(max_so_far, bfs((r, c)))
+                if grid[r][c] == -1 or grid[r][c] == 0:
+                    continue
+                max_so_far = max(max_so_far, bfs((r, c)))
         return max_so_far
                     
                         
