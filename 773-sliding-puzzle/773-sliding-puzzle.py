@@ -41,9 +41,9 @@ class Solution:
             while queue:
                 for _ in range(len(queue)):
                     pos_sol, steps = queue.popleft()
-                    for puzzle in get_puzzles(pos_sol):
-                        if pos_sol == "123450":
+                    if pos_sol == "123450":
                             return steps 
+                    for puzzle in get_puzzles(pos_sol):
                         if puzzle not in visited:
                             queue.append([puzzle, steps + 1])
                             visited.add(puzzle)
