@@ -19,19 +19,17 @@ class Solution:
         l = 0
         r = 1
         ans =  0
-        for _ in range(len(s)):
-            if r < len(s) and s[l:r+1] in convert:
-                print([s[l:r+1]])
+        n = len(s)
+        
+        while l < n: 
+            if r < n and s[l:r+1] in convert:
                 ans += convert[s[l:r+1]]
-                r += 2
                 l += 2
-                
+                r += 2
             else:
-                if l < len(s):
-                    ans += convert[s[l]]
-                r += 1
+                ans += convert[s[l]]
                 l += 1
-            
+                r += 1
         return ans
             
             
