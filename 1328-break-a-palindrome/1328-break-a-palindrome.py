@@ -4,7 +4,7 @@ class Solution:
         if len(word) == 1:
             return ""
         left, right = 0, len(word) - 1
-        res = [char for char in palindrome]
+        res = list(word)
         print(res)
         while left < right:
                 if word[left] > 'a':
