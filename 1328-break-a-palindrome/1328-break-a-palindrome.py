@@ -1,16 +1,33 @@
 class Solution:
+    def isPalindrome(self, check: str) -> bool:
+        l, r = 0, len(check)-1
+        while l < r:
+            if not(check[l] == check[r]):
+                return False
+            l += 1
+            r -= 1
+        return True
+    
     def breakPalindrome(self, palindrome: str) -> str:
-        word = palindrome
-        if len(word) == 1:
+        if len(palindrome) == 1:
             return ""
-        left, right = 0, len(word) - 1
-        res = list(word)
-        print(res)
-        while left < right:
-                if word[left] > 'a':
-                    res[left] = 'a'
-                    return ''.join(res)
-                left += 1
-                right -= 1
-        res[-1] = 'b'
-        return ''.join(res)
+        
+        word = list(palindrome)
+        
+        n = len(word)
+        
+        for i in range(n):
+            if not(word[i] == 'a'):
+                word[i] = 'a'
+                break
+                
+        
+        if "".join(word) < palindrome and not(self.isPalindrome("".join(word))):
+            return "".join(word)
+        else:
+            word = list(palindrome)
+            word[-1] = 'b'
+            return "".join(word)
+        
+        
+        
