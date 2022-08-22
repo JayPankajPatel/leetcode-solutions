@@ -10,19 +10,15 @@ class Solution:
             
         
         l, r = 0, len(s1)-1 
-        if window == check:
-                return True
         while r != len(s2)-1:
             if window == check:
                 return True
             window[ord(s2[l]) - ord('a')] -= 1
             l += 1
-            if window == check:
-                return True
+            
             r += 1
             window[ord(s2[r]) - ord('a')] += 1
-            if window == check:
-                return True
+            
             
         
         return window == check
