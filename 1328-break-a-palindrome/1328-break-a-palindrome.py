@@ -21,8 +21,8 @@ class Solution:
                 word[i] = 'a'
                 break
                 
-        
-        if "".join(word) < palindrome and not(self.isPalindrome("".join(word))):
+        final = "".join(word) 
+        if final < palindrome and not(self.isPalindrome(final)):
             return "".join(word)
         else:
             word = list(palindrome)
