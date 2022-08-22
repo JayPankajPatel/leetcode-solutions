@@ -22,8 +22,9 @@ class Solution:
                 break
                 
         final = "".join(word) 
+        
         if final < palindrome and not(self.isPalindrome(final)):
-            return "".join(word)
+            return final
         else:
             word = list(palindrome)
             word[-1] = 'b'
