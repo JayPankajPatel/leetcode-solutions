@@ -12,8 +12,8 @@ class Solution:
         for x in s:
             if stack and x in check and stack[-1] == check[x]:
                 stack.pop()
-                continue
-            stack.append(x)
+            else:
+                stack.append(x)
             
         return len(stack) == 0
         
