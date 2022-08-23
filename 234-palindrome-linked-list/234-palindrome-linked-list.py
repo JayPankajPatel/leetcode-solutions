@@ -6,7 +6,7 @@
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         
-        res = []
+        res = [] * 1*10**5
         
         while head:
             res.append(head.val)
