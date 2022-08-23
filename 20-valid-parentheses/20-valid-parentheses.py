@@ -7,6 +7,7 @@ class Solution:
             '}': '{', 
             ')': '('
         }
+        
         stack = deque()
         
         for x in s:
