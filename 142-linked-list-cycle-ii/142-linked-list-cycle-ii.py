@@ -10,7 +10,7 @@ class Solution:
         
         my_map = {}
         i = 0
-        while head:
+        while head and head.next:
             if head in my_map:
                 return head
             my_map[head] = i
