@@ -8,12 +8,12 @@ class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
         
-        my_map = {}
+        my_map = set()
         i = 0
         while head and head.next:
             if head in my_map:
                 return head
-            my_map[head] = i
+            my_map.add(head)
             head = head.next
             i += 1
         
