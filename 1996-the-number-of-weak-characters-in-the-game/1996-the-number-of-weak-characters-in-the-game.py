@@ -11,13 +11,14 @@ class Solution:
             groups[attack].append(defense)
         
         count = 0 
-        max_def = -1
+        max_def = 0
         
-        for i in range(max_atk, min_atk - 1, -1):
+        for i in range(max_atk, min_atk-1, -1):
             if groups[i]:
                 for defense in groups[i]:
                     if defense < max_def:
                         count += 1
                 max_def = max(max_def, max(groups[i]))
+                
         return count
         
