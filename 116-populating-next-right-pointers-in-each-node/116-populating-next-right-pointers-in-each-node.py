@@ -13,7 +13,7 @@ class Solution:
         if not root:
             return root
         def bfs(root):
-            if not root.left:
+            if not root:
                 return 
 
             if root.right:
