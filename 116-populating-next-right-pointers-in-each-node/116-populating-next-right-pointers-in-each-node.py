@@ -20,8 +20,7 @@ class Solution:
                 root.left.next = root.right
             if root.next and root.left:
                 root.right.next = root.next.left
-            else:
-                root.next = None
+            
                 
             bfs(root.left)
             bfs(root.right)
