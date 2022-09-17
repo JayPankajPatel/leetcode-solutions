@@ -36,6 +36,8 @@ class Solution:
                 if grid[i][j] == '1':
                     bfs([i, j])
                     counter += 1
+                else:
+                    continue
         return counter
                 
         
