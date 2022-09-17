@@ -1,25 +1,41 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        if len(grid) == 0:
-            return 0
+        num_rows = len(grid)
+        num_cols = len(grid[0])
+        def get_neighbors(coor):
+            nonlocal num_cols
+            nonlocal num_rows
+            row, col = coor
+            delta_row = [0, 1, 0, -1]
+            delta_col = [-1, 0, 1, 0]
+            res = []
+            for i in range(len(delta_row)):
+                neigh_row = row + delta_row[i]
+                neigh_col = col + delta_col[i]
+                
+                if 0 <= neigh_row < num_rows and 0 <= neigh_col < num_cols:
+                    if grid[neigh_row][neigh_col] == '1':
+                        res.append([neigh_row, neigh_col])
+            return res
         
-        count = 0
+        def bfs(start):
+            from collections import deque
+            queue = deque([start])
+            
+            while queue:
+                node = queue.popleft()
+                for row, col in get_neighbors(node):
+                    if grid[row][col] == '1':
+                        grid[row][col] = '0'
+                    queue.append([row, col])
+            
         
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
+        counter = 0
+        for i in range(num_rows):
+            for j in range(num_cols):
                 if grid[i][j] == '1':
-                    count += 1
-                    self.helper(grid, i, j)
+                    bfs([i, j])
+                    counter += 1
+        return counter
+                
         
-        return count
-    
-    def helper(self, grid: List[List[str]], row: int, col: int) -> None:
-        while row < 0 or row >= len(grid) or col < 0 or col >= len(grid[0]) or grid[row][col] == '0':
-            return
-        
-        grid[row][col] = '0'
-        
-        self.helper(grid, row + 1, col)
-        self.helper(grid, row - 1, col)
-        self.helper(grid, row, col + 1)
-        self.helper(grid, row, col - 1)
