@@ -8,17 +8,21 @@ class Node:
 
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
-        oldmapnew = {}
+        from collections import defaultdict
+        visited = defaultdict(List)
         
-        def dfs(root):
-            if not root:
-                return None
-            if root in oldmapnew:
-                return oldmapnew[root]
+        def dfs(node):
+            nonlocal visited
+            if node in visited:
+                return visited[node]
             
-            cp_node = Node(root.val)
-            oldmapnew[root] = cp_node
-            for neighbor in root.neighbors:
-                cp_node.neighbors.append(dfs(neighbor))
-            return cp_node
-        return dfs(node)
+            cp = Node(node.val)
+            visited[node] = cp
+            for neighbor in node.neighbors:
+                cp.neighbors.append(dfs(neighbor))
+            return cp
+        
+        return dfs(node) if node else None
+            
+            
+            
